@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button {
+  font: inherit;
+}
+
+/* Background */
+
+.calendar-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #27483b 0%, transparent 40%),
+    linear-gradient(180deg, #0c1713 0%, #172b23 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.calendar-container {
+  width: 100%;
+  max-width: 650px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Snowflakes */
+
+.snowflake {
+  position: fixed;
+  color: rgba(255, 255, 255, 0.13);
+  pointer-events: none;
+}
+
+.snowflake-one {
+  width: 60px;
+  height: 60px;
+  top: 30px;
+  left: 30px;
+}
+
+.snowflake-two {
+  width: 90px;
+  height: 90px;
+  bottom: 30px;
+  right: 30px;
+}
+
+/* Closed calendar door */
+
+.calendar-door {
+  width: 100%;
+  min-height: 75vh;
+  border: 1px solid rgba(255, 223, 170, 0.4);
+  border-radius: 30px;
+  background:
+    linear-gradient(
+      145deg,
+      #8c292e 0%,
+      #741c22 55%,
+      #5f151b 100%
+    );
+  color: #f7e8bd;
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.45),
+    inset 0 0 50px rgba(255, 215, 140, 0.06);
+  padding: 40px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-door:hover {
+  background:
+    linear-gradient(
+      145deg,
+      #973037 0%,
+      #7d2026 55%,
+      #661820 100%
+    );
+}
+
+.door-border {
+  position: absolute;
+  inset: 20px;
+  border: 1px solid rgba(255, 225, 170, 0.32);
+  border-radius: 22px;
+  pointer-events: none;
+}
+
+.calendar-name {
+  margin: 0 0 25px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 239, 199, 0.85);
+}
+
+.door-number {
+  font-size: clamp(130px, 32vw, 200px);
+  line-height: 0.9;
+  color: #f6e3ae;
+  text-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(255, 220, 150, 0.12);
+}
+
+.gift-icon {
+  width: 42px;
+  height: 42px;
+  margin-top: 35px;
+  color: #f6e3ae;
+}
+
+.tap-text {
+  margin: 18px 0 0;
+  font-size: 18px;
+  font-style: italic;
+  color: #fff3d2;
+}
+
+/* Open door / poem */
+
+.poem-card {
+  background: #f7f0df;
+  color: #27372f;
+  border-radius: 30px;
+  padding: 42px 50px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.poem-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.door-label {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #8c292e;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.poem-header h1 {
+  margin: 14px 0 0;
+  font-size: clamp(27px, 6vw, 40px);
+  line-height: 1.15;
+  font-weight: normal;
+  color: #7d1f25;
+}
+
+.title-line {
+  width: 60px;
+  height: 1px;
+  background: #b59658;
+  margin: 22px auto 0;
+}
+
+.poem {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.verse {
+  margin-bottom: 27px;
+}
+
+.verse p {
+  margin: 2px 0;
+}
+
+.close-button {
+  display: block;
+  margin: 40px auto 0;
+  border: 0;
+  background: transparent;
+  color: #8c292e;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.close-button:hover {
+  color: #4f1115;
+}
+
+/* Phone */
+
+@media (max-width: 600px) {
+  .calendar-page {
+    padding: 14px;
+  }
+
+  .calendar-door {
+    min-height: 82vh;
+    padding: 25px;
+  }
+
+  .calendar-name {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+  }
+
+  .poem-card {
+    border-radius: 22px;
+    padding: 32px 18px;
+  }
+
+  .poem {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .verse {
+    margin-bottom: 24px;
+  }
+}
